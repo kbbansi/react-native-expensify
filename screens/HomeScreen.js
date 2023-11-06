@@ -74,10 +74,7 @@ export default function HomeScreen() {
               return (
                 <TouchableOpacity className="bg-white p-3 rounded-2xl mb-3 shadow-sm">
                   <View>
-                    <Image
-                      source={randomImage()}
-                      className="w-36 h-36 mb-2"
-                    />
+                    <Image source={randomImage()} className="w-36 h-36 mb-2" />
                     <Text className={`${colours.heading} font-bold`}>
                       {item.place}
                     </Text>
