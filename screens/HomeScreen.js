@@ -2,6 +2,8 @@ import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import ScreenWrapper from '../components/ScreenWrapper';
 import {colours} from '../theme';
 import randomImage from '../assets/images/randomImage';
+import EmptyList from "../components/EmptyList";
+import { useNavigation } from "@react-navigation/native";
 
 const list_of_trips = [
   {
@@ -32,6 +34,7 @@ const list_of_trips = [
 ];
 
 export default function HomeScreen() {
+  const navigation = useNavigation()
   return (
     <ScreenWrapper className="flex-1">
       <View className="flex-row justify-between items-center p-4">
@@ -56,7 +59,9 @@ export default function HomeScreen() {
             Recent Trips
           </Text>
           {/* TODO: TouchableOpacity takes text and makes it function like a button*/}
-          <TouchableOpacity className="p-2 px-3 bg-white border border-gray-200 rounded-full">
+          <TouchableOpacity
+            onPress={() => navigation.navigate('AddTrip')}
+            className="p-2 px-3 bg-white border border-gray-200 rounded-full">
             <Text className={colours.heading}>Add Trip</Text>
           </TouchableOpacity>
         </View>
@@ -66,6 +71,7 @@ export default function HomeScreen() {
             numColumns={2}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
+            ListEmptyComponent={<EmptyList message={'No trips yet'} />}
             columnWrapperStyle={{
               justifyContent: 'space-between',
             }}
