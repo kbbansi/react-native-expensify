@@ -1,9 +1,9 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import ScreenWrapper from '../components/ScreenWrapper';
 import {colours} from '../theme';
 import BackButton from '../components/BackButton';
 import {useState} from 'react';
-import { useNavigation } from "@react-navigation/native";
+import {useNavigation} from '@react-navigation/native';
 function AddTripScreen() {
   const navigation = useNavigation();
   const [place, setPlace] = useState('');
