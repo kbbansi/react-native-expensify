@@ -2,8 +2,8 @@ import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import ScreenWrapper from '../components/ScreenWrapper';
 import {colours} from '../theme';
 import randomImage from '../assets/images/randomImage';
-import EmptyList from "../components/EmptyList";
-import { useNavigation } from "@react-navigation/native";
+import EmptyList from '../components/EmptyList';
+import {useNavigation} from '@react-navigation/native';
 
 const list_of_trips = [
   {
@@ -34,7 +34,7 @@ const list_of_trips = [
 ];
 
 export default function HomeScreen() {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <ScreenWrapper className="flex-1">
       <View className="flex-row justify-between items-center p-4">
@@ -78,7 +78,9 @@ export default function HomeScreen() {
             className="mx-1"
             renderItem={({item}) => {
               return (
-                <TouchableOpacity className="bg-white p-3 rounded-2xl mb-3 shadow-sm">
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('TripExpenses', {...item})}
+                  className="bg-white p-3 rounded-2xl mb-3 shadow-sm">
                   <View>
                     <Image source={randomImage()} className="w-36 h-36 mb-2" />
                     <Text className={`${colours.heading} font-bold`}>
