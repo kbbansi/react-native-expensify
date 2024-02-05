@@ -34,7 +34,7 @@ const list_of_expenses = [
 ];
 
 function TripExpensesScreen(props) {
-  const {place, country} = props.route.params;
+  const {id, place, country} = props.route.params;
 
   const navigation = useNavigation();
   return (

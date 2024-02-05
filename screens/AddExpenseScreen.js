@@ -28,7 +28,7 @@ function AddExpenseScreen() {
           <View className="relative mt-5">
             {/*Back Button and Heading*/}
             <View className="absolute top-0 left-0">
-              <BackButton />
+              <BackButton onClick={() => navigation.goBack()} />
             </View>
             <Text
               className={`${colours.heading} font-bold text-xl text-center`}>
